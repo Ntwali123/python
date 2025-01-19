@@ -32,7 +32,7 @@ def monitor_folder():
         files = [f for f in os.listdir(MONITOR_DIR) if os.path.isfile(os.path.join(MONITOR_DIR, f))]
         for file_name in files:
             file_path = os.path.join(MONITOR_DIR, file_name)
-            if time.time() - os.path.getmtime(file_path) >= 30:  # Check if file is older than 30 seconds
+            if time.time() - os.path.getmtime(file_path) >= 30:  
                 if upload_file(file_path):
                     move(file_path, os.path.join(UPLOADED_DIR, file_name))
         time.sleep(10)
